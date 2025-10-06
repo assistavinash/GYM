@@ -476,6 +476,128 @@ function AboutPage() {
           </div>
         </section>
 
+        {/* Location & Timing Section */}
+        <section className="py-10 sm:py-20 px-4">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                Visit <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Our Gym</span>
+              </h2>
+              <p className="text-xl text-white max-w-3xl mx-auto">
+                Located in the heart of Noida, we're easily accessible and ready to welcome you to our fitness family.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 mb-12">
+              {/* Location Info */}
+              <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-xl flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Our Location</h3>
+                </div>
+                
+                <div className="space-y-4 text-white">
+                  <div className="text-lg">
+                    <span className="text-yellow-400 font-semibold">Address:</span>
+                    <p>2nd floor, VS complex, defence enclave</p>
+                    <p>Near Chhalera, sombazar, Sector 44</p>
+                    <p>Noida, Uttar Pradesh 201303</p>
+                  </div>
+                  
+                  <div className="bg-yellow-400/10 rounded-xl p-4 border border-yellow-400/20">
+                    <p className="text-yellow-400 font-semibold text-sm">
+                      📍 Plus Code: H85W+4F Noida, Uttar Pradesh
+                    </p>
+                    <p className="text-white text-sm mt-1">
+                      Easy to locate with Google Maps
+                    </p>
+                  </div>
+
+                  <div className="text-sm text-gray-300">
+                    <p>🚗 Ample parking space available</p>
+                    <p>🚇 Near metro station and bus stops</p>
+                    <p>🏬 Located in prime commercial area</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Timing Info */}
+              <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-xl flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Operating Hours</h3>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center py-2 border-b border-white/10">
+                    <span className="text-white font-medium">Monday</span>
+                    <span className="text-yellow-400 font-semibold">5:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/10">
+                    <span className="text-white font-medium">Tuesday</span>
+                    <span className="text-yellow-400 font-semibold">5:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/10">
+                    <span className="text-white font-medium">Wednesday</span>
+                    <span className="text-yellow-400 font-semibold">5:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/10">
+                    <span className="text-white font-medium">Thursday</span>
+                    <span className="text-yellow-400 font-semibold">5:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/10">
+                    <span className="text-white font-medium">Friday</span>
+                    <span className="text-yellow-400 font-semibold">5:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/10">
+                    <span className="text-white font-medium">Saturday</span>
+                    <span className="text-yellow-400 font-semibold">5:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-white font-medium">Sunday</span>
+                    <span className="text-red-400 font-semibold">Closed</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-gradient-to-r from-yellow-400/10 to-amber-500/10 rounded-xl border border-yellow-400/20">
+                  <h4 className="text-white font-semibold mb-2">💪 Peak Hours</h4>
+                  <p className="text-gray-300 text-sm">Morning: 6:00 AM - 9:00 AM</p>
+                  <p className="text-gray-300 text-sm">Evening: 6:00 PM - 9:00 PM</p>
+                  <p className="text-yellow-400 text-xs mt-2">
+                    Sunday: Equipment maintenance & deep cleaning day
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps */}
+            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Find Us on Map</h3>
+              <div className="rounded-2xl overflow-hidden border border-white/20">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.958870041033!2d77.34392774999999!3d28.5550537500001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce59294364cb3%3A0x7f339823d97ef392!2sPower%20point%20unisex%20gym!5e0!3m2!1sen!2sin!4v1759742850219!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="400" 
+                  style={{border:0}} 
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-10 sm:py-20 px-4">
           <div className="container mx-auto max-w-4xl text-center">
@@ -491,7 +613,7 @@ function AboutPage() {
                 <Link to="/register" className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full font-semibold text-white shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 hover:scale-105 inline-block">
                   Start Your Journey
                 </Link>
-                <Link to="/" className="px-8 py-4 border-2 border-white/20 rounded-full font-semibold text-white backdrop-blur-sm hover:bg-white/10 transition-all duration-300 inline-block">
+                <Link to="/contact" className="px-8 py-4 border-2 border-white/20 rounded-full font-semibold text-white backdrop-blur-sm hover:bg-white/10 transition-all duration-300 inline-block">
                   Contact Us Today
                 </Link>
               </div>
