@@ -31,50 +31,8 @@ function sendVerificationEmail(to, code) {
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to,
-        subject: 'PowerPoint Gym - Verify Your Account',
-        html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
-                <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <div style="text-align: center; margin-bottom: 20px;">
-                        <h1 style="color: #facc15; margin: 0;">PowerPoint Gym</h1>
-                        <p style="color: #666; margin: 5px 0;">Premium Fitness Experience</p>
-                    </div>
-                    
-                    <h2 style="color: #333; text-align: center;">Welcome to PowerPoint Gym!</h2>
-                    
-                    <p style="color: #666; line-height: 1.6;">
-                        Thank you for registering with PowerPoint Gym! To complete your account setup, 
-                        please verify your email address using the code below:
-                    </p>
-                    
-                    <div style="text-align: center; margin: 30px 0;">
-                        <div style="background-color: #facc15; color: white; font-size: 32px; font-weight: bold; 
-                                    padding: 20px 30px; border-radius: 10px; display: inline-block; letter-spacing: 5px; 
-                                    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.3);">
-                            ${code}
-                        </div>
-                    </div>
-                    
-                    <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
-                        <p style="color: #666; margin: 0; font-size: 14px;">
-                            <strong>Note:</strong> This verification code will expire in 10 minutes. 
-                            If you didn't create this account, please ignore this email.
-                        </p>
-                    </div>
-                    
-                    <p style="color: #666; line-height: 1.6;">
-                        Once verified, you'll have access to our premium fitness facilities, 
-                        personalized workout plans, and expert guidance.
-                    </p>
-                    
-                    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-                        <p style="color: #999; font-size: 12px; margin: 0;">
-                            PowerPoint Gym | 123 Fitness Street, Delhi | +91-1234567890
-                        </p>
-                    </div>
-                </div>
-            </div>
-        `
+        subject: 'Verify your PowerPoint Gym account',
+        text: `Your email verification code is: ${code}. This code will expire in 10 minutes.`
     };
     return transporter.sendMail(mailOptions);
 }
@@ -306,121 +264,10 @@ function sendContactNotificationToOwner(formData) {
     return transporter.sendMail(mailOptions);
 }
 
-// Send notification to owner when user completes registration
-const sendUserRegistrationNotificationToOwner = async (userData) => {
-    try {
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.OWNER_EMAIL || 'powerpointgym@gmail.com',
-            subject: '🎉 New User Registration - PowerPoint Gym',
-            html: `
-                <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-                            max-width: 600px; margin: 0 auto; background-color: #f8f9fa; padding: 20px;">
-                    
-                    <!-- Header -->
-                    <div style="background: linear-gradient(135deg, #facc15 0%, #f59e0b 100%); 
-                                padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-                        <h1 style="margin: 0; color: #1f2937; font-size: 28px; font-weight: bold;">
-                            💪 PowerPoint Gym
-                        </h1>
-                        <p style="margin: 10px 0 0 0; color: #374151; font-size: 16px;">
-                            New Member Registration Alert
-                        </p>
-                    </div>
-                    
-                    <!-- Content -->
-                    <div style="background-color: white; padding: 40px; border-radius: 0 0 10px 10px; 
-                                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                        
-                        <div style="text-align: center; margin-bottom: 30px;">
-                            <h2 style="color: #1f2937; margin: 0 0 10px 0;">🎉 New User Registered!</h2>
-                            <p style="color: #6b7280; font-size: 16px; margin: 0;">
-                                A new member has successfully completed registration and email verification.
-                            </p>
-                        </div>
-                        
-                        <!-- User Details -->
-                        <div style="background-color: #f9fafb; padding: 25px; border-radius: 8px; 
-                                    border-left: 4px solid #facc15; margin: 20px 0;">
-                            <h3 style="color: #1f2937; margin: 0 0 15px 0; font-size: 18px;">👤 Member Details:</h3>
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <tr>
-                                    <td style="padding: 8px 0; font-weight: bold; color: #374151; width: 120px;">Name:</td>
-                                    <td style="padding: 8px 0; color: #1f2937;">${userData.firstName} ${userData.lastName}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Email:</td>
-                                    <td style="padding: 8px 0; color: #1f2937;">${userData.email}</td>
-                                </tr>
-                                ${userData.phone ? `
-                                <tr>
-                                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Phone:</td>
-                                    <td style="padding: 8px 0; color: #1f2937;">${userData.phone}</td>
-                                </tr>
-                                ` : ''}
-                                <tr>
-                                    <td style="padding: 8px 0; font-weight: bold; color: #374151;">Registered:</td>
-                                    <td style="padding: 8px 0; color: #1f2937;">${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</td>
-                                </tr>
-                            </table>
-                        </div>
-                        
-                        <!-- Action Buttons -->
-                        <div style="text-align: center; margin: 30px 0;">
-                            <div style="margin-bottom: 15px;">
-                                <a href="mailto:${userData.email}?subject=Welcome to PowerPoint Gym!" 
-                                   style="background-color: #28a745; color: white; text-decoration: none; 
-                                          padding: 12px 25px; border-radius: 5px; font-weight: bold; margin-right: 10px; display: inline-block;">
-                                    📧 Welcome Email
-                                </a>
-                            </div>
-                            ${userData.phone ? `
-                            <div>
-                                <a href="tel:${userData.phone}" 
-                                   style="background-color: #facc15; color: black; text-decoration: none; 
-                                          padding: 12px 25px; border-radius: 5px; font-weight: bold; display: inline-block;">
-                                    📞 Call New Member
-                                </a>
-                            </div>
-                            ` : ''}
-                        </div>
-                        
-                        <!-- Tips -->
-                        <div style="background-color: #fef3c7; padding: 20px; border-radius: 8px; 
-                                    border: 1px solid #fbbf24; margin: 20px 0;">
-                            <h4 style="color: #92400e; margin: 0 0 10px 0; font-size: 16px;">💡 Next Steps:</h4>
-                            <ul style="color: #92400e; margin: 0; padding-left: 20px;">
-                                <li>Send a welcome email with membership plans</li>
-                                <li>Schedule a follow-up call for membership consultation</li>
-                                <li>Add to your customer management system</li>
-                                <li>Send facility tour invitation</li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Footer -->
-                        <div style="text-align: center; margin-top: 30px; padding-top: 20px; 
-                                    border-top: 1px solid #e5e7eb;">
-                            <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                                This notification was sent from your PowerPoint Gym registration system.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            `
-        };
-
-        await transporter.sendMail(mailOptions);
-        console.log('✅ Owner notification sent for new user registration:', userData.email);
-    } catch (error) {
-        console.error('❌ Error sending owner notification:', error);
-    }
-};
-
 module.exports = { 
     sendOTPEmail, 
     sendVerificationEmail, 
     sendContactVerificationEmail, 
     sendContactConfirmationEmail,
-    sendContactNotificationToOwner,
-    sendUserRegistrationNotificationToOwner
+    sendContactNotificationToOwner 
 };

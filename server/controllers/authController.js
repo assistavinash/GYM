@@ -14,38 +14,21 @@ const register = async (req, res) => {
                 .json({ message: "User already exists, you can login", success: false });
         }
         
-        // Create new user with phone field and email verification required
+        // Create new user with phone field
         const newUser = new userModel({ 
             name, 
             email, 
             phone, 
             password,
-            role: role || 'user', // Default to 'user' if no role specified
-            isVerified: false // Require email verification
+            role: role || 'user' // Default to 'user' if no role specified
         });
-        
-        // Generate verification code
-        const verificationCode = newUser.generateVerificationCode();
         
         // Password will be hashed automatically by the pre-save middleware
         await newUser.save();
         
-        // Send verification email
-        try {
-            const { sendVerificationEmail } = require('../utils/email');
-            await sendVerificationEmail(email, verificationCode);
-            console.log(`Verification email sent to: ${email}`);
-        } catch (emailError) {
-            console.error('Verification email failed:', emailError);
-            // Continue with registration even if email fails
-        }
-        
         res.status(201).json({ 
-            message: "Registration initiated. Please check your email for verification code.", 
-            success: true,
-            verificationPending: true,
-            userId: newUser._id,
-            devCode: process.env.NODE_ENV === 'development' ? verificationCode : undefined
+            message: "User registered successfully", 
+            success: true 
         });
     } catch (error) {
         console.error('Registration error:', error);
@@ -97,18 +80,7 @@ const login = async (req, res) => {
                 .json({ message: "User not found", success: false });
         }
         
-        console.log('User found:', { email: user.email, role: user.role, isVerified: user.isVerified });
-        
-        // Check if email is verified (except for admin users)
-        if (!user.isVerified && user.role !== 'admin') {
-            return res.status(403).json({ 
-                message: "Please verify your email before logging in", 
-                success: false,
-                requiresVerification: true,
-                userId: user._id
-            });
-        }
-        
+        console.log('User found:', { email: user.email, role: user.role });
         console.log('Password from DB (first 20 chars):', user.password.substring(0, 20));
         
         const isPasswordMatch = await bcrypt.compare(password, user.password);
@@ -209,20 +181,6 @@ const verifyEmail = async (req, res) => {
         user.verificationCode = undefined;
         user.verificationCodeExpires = undefined;
         await user.save();
-
-        // Send notification to owner about new verified user
-        try {
-            const { sendUserRegistrationNotificationToOwner } = require('../utils/email');
-            await sendUserRegistrationNotificationToOwner({
-                firstName: user.name.split(' ')[0] || user.name,
-                lastName: user.name.split(' ').slice(1).join(' ') || '',
-                email: user.email,
-                phone: user.phone
-            });
-        } catch (emailError) {
-            console.error('Failed to send owner notification:', emailError);
-            // Don't fail the verification if email fails
-        }
 
         const jwtToken = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({

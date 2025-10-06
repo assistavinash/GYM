@@ -208,7 +208,7 @@ export default function Footer() {
               <div className="flex space-x-4">
                 {[
                   { icon: FaFacebookF, href: 'https://facebook.com/', color: 'hover:text-blue-500' },
-                  { icon: FaInstagram, href: 'https://instagram.com/', color: 'hover:text-pink-500' },
+                  { icon: FaInstagram, href: 'https://www.instagram.com/power_point_gym_/', color: 'hover:text-pink-500' },
                   { icon: FaTwitter, href: 'https://twitter.com/', color: 'hover:text-blue-400' },
                   { icon: FaYoutube, href: 'https://youtube.com/', color: 'hover:text-red-500' },
                   { icon: FaLinkedinIn, href: 'https://linkedin.com/', color: 'hover:text-blue-600' }
