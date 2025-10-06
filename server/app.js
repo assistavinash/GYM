@@ -14,16 +14,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors({ 
-    origin: [
-        'http://localhost:5173',
-        'http://localhost:5174',
-        'http://127.0.0.1:5173',
-        'http://127.0.0.1:5174'
-    ],
-    credentials: true,
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}));
+app.use(cors({  credentials: true }));
 
 // Security headers for Google OAuth
 app.use((req, res, next) => {
