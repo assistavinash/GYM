@@ -230,7 +230,6 @@ export default function Header() {
       icon: <FaEnvelope />,
       submenu: [
         { name: 'Contact Form', link: '/contact-form', icon: <FaEdit /> },
-        { name: 'Location & Map', link: '/location-map', icon: <FaMapMarkerAlt /> },
         { name: 'FAQs', link: '/faqs', icon: <FaQuestionCircle /> }
       ],
     },

@@ -110,7 +110,6 @@ export default function Sitemap() {
       icon: MapPin,
       color: 'from-teal-400 to-cyan-500',
       pages: [
-        { name: 'Location Map', path: '/location-map', description: 'Find our gym locations and directions' },
         { name: 'Overview', path: '/overview', description: 'General information and quick facts' }
       ]
     },

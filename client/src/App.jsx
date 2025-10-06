@@ -26,7 +26,6 @@ import FamilyPackages from './pages/FamilyPackages';
 import ClassSchedule from './pages/ClassSchedule';
 import TrainerAvailability from './pages/TrainerAvailability';
 import EventsCalendar from './pages/EventsCalendar';
-import LocationMap from './pages/LocationMap';
 import Faqs from './pages/Faqs';
 import About from './pages/About';
 import Classes from './pages/Classes';
@@ -114,7 +113,6 @@ function App() {
         <Route path="/class-schedule" element={<ClassSchedule />} />
         <Route path="/trainer-availability" element={<TrainerAvailability />} />
         <Route path="/events-calendar" element={<EventsCalendar />} />
-        <Route path="/location-map" element={<LocationMap />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/faq" element={<Navigate to="/faqs" replace />} />
 
