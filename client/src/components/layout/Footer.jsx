@@ -261,30 +261,34 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-yellow-400 mt-1 flex-shrink-0" />
                 <div className="text-sm">
-                  <p>123 Fitness Street,</p>
-                  <p>Noida, UP 201301</p>
+                  <p>2nd floor, VS complex,</p>
+                  <p>defence enclave, near Chhalera,</p>
+                  <p>sombazar, Sector 44,</p>
+                  <p>Noida, UP 201303</p>
+                  <p className="text-gray-400 mt-1">📍 H85W+4F Noida</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <FaPhone className="text-yellow-400 flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-sm hover:text-yellow-400 transition-colors">
-                  +91 98765 43210
+                <a href="tel:+911234567890" className="text-sm hover:text-yellow-400 transition-colors">
+                  +91 1234567890
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="text-yellow-400 flex-shrink-0" />
-                <a href="mailto:info@powerpointgym.com" className="text-sm hover:text-yellow-400 transition-colors">
-                  info@powerpointgym.com
+                <a href="mailto:powerpointgym@gmail.com" className="text-sm hover:text-yellow-400 transition-colors">
+                  powerpointgym@gmail.com
                 </a>
               </div>
               
               <div className="flex items-start space-x-3">
                 <FaClock className="text-yellow-400 mt-1 flex-shrink-0" />
                 <div className="text-sm">
-                  <p>Mon-Sat: 5:00 AM - 11:00 PM</p>
-                  <p>Sunday: 6:00 AM - 10:00 PM</p>
+                  <p>Mon-Sat: 5:00 AM - 10:00 PM</p>
+                  <p>Sunday: Closed</p>
+                  <p className="text-gray-400 mt-1">Equipment maintenance day</p>
                 </div>
               </div>
             </div>
