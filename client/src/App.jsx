@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RefreshHandler from './refreshHandler';
+import ScrollToTop from './components/ScrollToTop';
 import { clearAllAuthData, checkCurrentStorage } from './utils/clearStorage';
 import Home from './pages/Home';
 import Login from './pages/LoginPage';
@@ -75,6 +76,9 @@ function App() {
     <div className="App">
       {/* ✅ Token Refresh / Auto Login Check */}
       <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
+      
+      {/* ✅ Scroll to Top on Route Change */}
+      <ScrollToTop />
  
       <Routes>
         {/* ✅ Public Routes */}
